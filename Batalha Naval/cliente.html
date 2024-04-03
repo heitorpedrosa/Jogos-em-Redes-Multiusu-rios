@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Battleship</title>
+
+    <style>
+        root {
+            display: block;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        p {
+            font-family: monospace;
+        }
+
+        .left-table {
+            float: left;
+            margin-right: 20px; /* Adiciona um espaço entre as tabelas */
+        }
+
+        .right-table {
+            float: right;
+            margin-left: 20px; /* Adiciona um espaço entre as tabelas */
+        }
+
+        td {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            font-size: 15px;
+            text-align: center;
+            font-family: arial, helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <table class="left-table">
+        <tr>
+            <td id="cell00" ></td>
+            <td id="cell01" ></td>
+            <td id="cell02" ></td>
+            <td id="cell03" ></td>
+            <td id="cell04" ></td>
+            <td id="cell05" ></td>
+            <td id="cell06" ></td>
+            <td id="cell07" ></td>
+            <td id="cell08" ></td>
+            <td id="cell09" ></td>
+        </tr>
+        <tr>
+            <td id="cell10" ></td>
+            <td id="cell11" ></td>
+            <td id="cell12" ></td>
+            <td id="cell13" ></td>
+            <td id="cell14" ></td>
+            <td id="cell15" ></td>
+            <td id="cell16" ></td>
+            <td id="cell17" ></td>
+            <td id="cell18" ></td>
+            <td id="cell19" ></td>
+        </tr>
+        <tr>
+            <td id="cell20" ></td>
+            <td id="cell21" ></td>
+            <td id="cell22" ></td>
+            <td id="cell23" ></td>
+            <td id="cell24" ></td>
+            <td id="cell25" ></td>
+            <td id="cell26" ></td>
+            <td id="cell27" ></td>
+            <td id="cell28" ></td>
+            <td id="cell29" ></td>
+        </tr>
+        <tr>
+            <td id="cell30" ></td>
+            <td id="cell31" ></td>
+            <td id="cell32" ></td>
+            <td id="cell33" ></td>
+            <td id="cell34" ></td>
+            <td id="cell35" ></td>
+            <td id="cell36" ></td>
+            <td id="cell37" ></td>
+            <td id="cell38" ></td>
+            <td id="cell39" ></td>
+        </tr>
+        <tr>
+            <td id="cell40" ></td>
+            <td id="cell41" ></td>
+            <td id="cell42" ></td>
+            <td id="cell43" ></td>
+            <td id="cell44" ></td>
+            <td id="cell45" ></td>
+            <td id="cell46" ></td>
+            <td id="cell47" ></td>
+            <td id="cell48" ></td>
+            <td id="cell49" ></td>
+        </tr>
+        <tr>
+            <td id="cell50" ></td>
+            <td id="cell51" ></td>
+            <td id="cell52" ></td>
+            <td id="cell53" ></td>
+            <td id="cell54" ></td>
+            <td id="cell55" ></td>
+            <td id="cell56" ></td>
+            <td id="cell57" ></td>
+            <td id="cell58" ></td>
+            <td id="cell59" ></td>
+        </tr>
+        <tr>
+            <td id="cell60" ></td>
+            <td id="cell61" ></td>
+            <td id="cell62" ></td>
+            <td id="cell63" ></td>
+            <td id="cell64" ></td>
+            <td id="cell65" ></td>
+            <td id="cell66" ></td>
+            <td id="cell67" ></td>
+            <td id="cell68" ></td>
+            <td id="cell69" ></td>
+        </tr>
+        <tr>
+            <td id="cell70" ></td>
+            <td id="cell71" ></td>
+            <td id="cell72" ></td>
+            <td id="cell73" ></td>
+            <td id="cell74" ></td>
+            <td id="cell75" ></td>
+            <td id="cell76" ></td>
+            <td id="cell77" ></td>
+            <td id="cell78" ></td>
+            <td id="cell79" ></td>
+        </tr>
+        <tr>
+            <td id="cell80" ></td>
+            <td id="cell81" ></td>
+            <td id="cell82" ></td>
+            <td id="cell83" ></td>
+            <td id="cell84" ></td>
+            <td id="cell85" ></td>
+            <td id="cell86" ></td>
+            <td id="cell87" ></td>
+            <td id="cell88" ></td>
+            <td id="cell89" ></td>
+        </tr>
+        <tr>
+            <td id="cell90" ></td>
+            <td id="cell91" ></td>
+            <td id="cell92" ></td>
+            <td id="cell93" ></td>
+            <td id="cell94" ></td>
+            <td id="cell95" ></td>
+            <td id="cell96" ></td>
+            <td id="cell97" ></td>
+            <td id="cell98" ></td>
+            <td id="cell99" ></td>
+        </tr>
+    </table>
+    <table class="right-table">
+        <tr>
+            <td id="Cell00" ></td>
+            <td id="Cell01" ></td>
+            <td id="Cell02" ></td>
+            <td id="Cell03" ></td>
+            <td id="Cell04" ></td>
+            <td id="Cell05" ></td>
+            <td id="Cell06" ></td>
+            <td id="Cell07" ></td>
+            <td id="Cell08" ></td>
+            <td id="Cell09" ></td>
+        </tr>
+        <tr>
+            <td id="Cell10" ></td>
+            <td id="Cell11" ></td>
+            <td id="Cell12" ></td>
+            <td id="Cell13" ></td>
+            <td id="Cell14" ></td>
+            <td id="Cell15" ></td>
+            <td id="Cell16" ></td>
+            <td id="Cell17" ></td>
+            <td id="Cell18" ></td>
+            <td id="Cell19" ></td>
+        </tr>
+        <tr>
+            <td id="Cell20" ></td>
+            <td id="Cell21" ></td>
+            <td id="Cell22" ></td>
+            <td id="Cell23" ></td>
+            <td id="Cell24" ></td>
+            <td id="Cell25" ></td>
+            <td id="Cell26" ></td>
+            <td id="Cell27" ></td>
+            <td id="Cell28" ></td>
+            <td id="Cell29" ></td>
+        </tr>
+        <tr>
+            <td id="Cell30" ></td>
+            <td id="Cell31" ></td>
+            <td id="Cell32" ></td>
+            <td id="Cell33" ></td>
+            <td id="Cell34" ></td>
+            <td id="Cell35" ></td>
+            <td id="Cell36" ></td>
+            <td id="Cell37" ></td>
+            <td id="Cell38" ></td>
+            <td id="Cell39" ></td>
+        </tr>
+        <tr>
+            <td id="Cell40" ></td>
+            <td id="Cell41" ></td>
+            <td id="Cell42" ></td>
+            <td id="Cell43" ></td>
+            <td id="Cell44" ></td>
+            <td id="Cell45" ></td>
+            <td id="Cell46" ></td>
+            <td id="Cell47" ></td>
+            <td id="Cell48" ></td>
+            <td id="Cell49" ></td>
+        </tr>
+        <tr>
+            <td id="Cell50" ></td>
+            <td id="Cell51" ></td>
+            <td id="Cell52" ></td>
+            <td id="Cell53" ></td>
+            <td id="Cell54" ></td>
+            <td id="Cell55" ></td>
+            <td id="Cell56" ></td>
+            <td id="Cell57" ></td>
+            <td id="Cell58" ></td>
+            <td id="Cell59" ></td>
+        </tr>
+        <tr>
+            <td id="Cell60" ></td>
+            <td id="Cell61" ></td>
+            <td id="Cell62" ></td>
+            <td id="Cell63" ></td>
+            <td id="Cell64" ></td>
+            <td id="Cell65" ></td>
+            <td id="Cell66" ></td>
+            <td id="Cell67" ></td>
+            <td id="Cell68" ></td>
+            <td id="Cell69" ></td>
+        </tr>
+        <tr>
+            <td id="Cell70" ></td>
+            <td id="Cell71" ></td>
+            <td id="Cell72" ></td>
+            <td id="Cell73" ></td>
+            <td id="Cell74" ></td>
+            <td id="Cell75" ></td>
+            <td id="Cell76" ></td>
+            <td id="Cell77" ></td>
+            <td id="Cell78" ></td>
+            <td id="Cell79" ></td>
+        </tr>
+        <tr>
+            <td id="Cell80" ></td>
+            <td id="Cell81" ></td>
+            <td id="Cell82" ></td>
+            <td id="Cell83" ></td>
+            <td id="Cell84" ></td>
+            <td id="Cell85" ></td>
+            <td id="Cell86" ></td>
+            <td id="Cell87" ></td>
+            <td id="Cell88" ></td>
+            <td id="Cell89" ></td>
+        </tr>
+        <tr>
+            <td id="Cell90" ></td>
+            <td id="Cell91" ></td>
+            <td id="Cell92" ></td>
+            <td id="Cell93" ></td>
+            <td id="Cell94" ></td>
+            <td id="Cell95" ></td>
+            <td id="Cell96" ></td>
+            <td id="Cell97" ></td>
+            <td id="Cell98" ></td>
+            <td id="Cell99" ></td>
+        </tr>
+    </table>
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Digite sua mensagem">
+    <button id="sendButton">Enviar</button>
+    <script>
+        const ws = new WebSocket ( "ws://localhost:8080" );
+
+        const messagesDiv = document.getElementById ( "messages" );
+        const messageInput = document.getElementById ( "messageInput" );
+        const sendButton = document.getElementById( "sendButton" );
+
+        let player = { myBoard: [ [ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, ],
+                                  [ 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, ],
+                                  [ 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, ],
+                                  [ 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, ],
+                                  [ 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, ] ],
+                       board:   [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ],
+                                  [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ] ],
+                       playerNumber: undefined,
+                       isTurn: false,
+                       hit: "",
+                       points: 0 }
+
+        ws.onopen = function ( event ) {
+            console.log ( "Conexão estabelecida" );
+        };
+        
+        ws.onmessage = function ( event ) {
+            //Mensagem recebida do servidor
+            const data = event.data;
+            //String é exibida no HTML
+            if ( !isJSON ( data.toString () ) ) {
+                const message = data.toString ();
+                
+                const messageElement = document.createElement ( "div" );
+                messageElement.textContent = message;
+                messagesDiv.appendChild ( messageElement );
+            }
+            //JSON -> atualiza os dados do jogador e imprime no console
+            else {
+                let jsonData = JSON.parse ( event.data );
+
+                player.myBoard = jsonData.myBoard.map ( row => row.slice () );
+                player.board = jsonData.board.map ( row => row.slice () );
+                player.playerNumber = jsonData.playerNumber;
+                player.isTurn = jsonData.isTurn;
+                player.hit = jsonData.hit;
+                player.points = jsonData.points;
+
+                //[ i ] [ j ] === 0 => Água ( azul )
+                //[ i ] [ j ] === 1 => Embarcação ( cinza )
+                //[ i ] [ j ] === 3 => Bomba ( acertou uma embarcação ) ( vermelho )
+                //[ i ] [ j ] === 4 => Água ( acertou na água ) ( azul escuro )
+                for ( let i = 0; i < 10; i++ ) {
+                    for ( let j = 0; j < 10; j++ ) {
+                        let cell = document.getElementById ( "cell" + i + j );
+                        if ( player.myBoard [ i ] [ j ] === 0 ) {
+                            cell.style.backgroundColor = "blue";
+                        }
+                        else if ( player.myBoard [ i ] [ j ] === 1 ){
+                            cell.style.backgroundColor = "darkgrey";
+                        }
+                        else if ( player.myBoard [ i ] [ j ] === 3 ){
+                            cell.style.backgroundColor = "red";
+                        }
+                        else {
+                            cell.style.backgroundColor = "darkblue";
+                        }
+
+                        let Cell = document.getElementById ( "Cell" + i + j );
+                        if ( player.board [ i ] [ j ] === 3 ) {
+                            Cell.style.backgroundColor = "red";
+                        }
+                        else if ( player.board [ i ] [ j ] === 4 ) {
+                            Cell.style.backgroundColor = "darkblue";
+                        }
+                    }
+                }
+            }
+
+            //Habilitação/desabilitação do input e do botão baseado em quem irá atacar na rodada
+            if ( player.isTurn === false ) {
+                document.getElementById ( "messageInput" ).disabled = true;
+                document.getElementById ( "sendButton" ).disabled = true;
+            }
+            else {
+                document.getElementById ( "messageInput" ).disabled = false;
+                document.getElementById ("sendButton").disabled = false;
+            }
+        };
+
+        // Função para enviar uma mensagem para o servidor quando o botão é clicado
+        sendButton.addEventListener ( "click", function () {
+            const message = messageInput.value;
+            if (message.trim () !== '' ) {
+                player.hit = message;
+                ws.send ( JSON.stringify ( player ) );
+                messageInput.value = ''; // Limpa o campo de entrada após o envio da mensagem
+            }
+        });
+
+        ws.onerror = function ( event ) {
+            console.error ( "Erro de WebSocket detectado:", event );
+        };
+
+        //Função para diferenciar string e JSON
+        function isJSON ( str ) {
+            try {
+                JSON.parse ( str );
+                return true;
+            } catch ( error ) {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
