@@ -9,9 +9,9 @@ Abra dois clientes em um navegador e tente afundar as embarcações inimigas env
 ## Como iniciar o servidor
 No diretório em que está o arquivo servidor, execute os seguintes comandos:
 ```
-#Instalar o módulo WebSocket (se não estiver instalado)
+# Instalar o módulo WebSocket (se não estiver instalado)
 $ npm install ws
 
-#Iniciar o servidor
+# Iniciar o servidor
 $ node servidor.js
 ```
